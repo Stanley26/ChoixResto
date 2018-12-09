@@ -1,0 +1,16 @@
+﻿@model List<ChoixResto.Models.Resto>
+
+<table class="table">
+    <tr>
+        <th>Nom</th>
+        <th>Téléphone</th>
+    </tr>
+
+@foreach (var resto in Model) {
+    <tr>
+        <td>@resto.Nom</td>
+        <td>@resto.Telephone</td>
+    </tr>
+}
+
+</table>

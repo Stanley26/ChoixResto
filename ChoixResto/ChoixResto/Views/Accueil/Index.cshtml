@@ -1,0 +1,43 @@
+﻿@model ChoixResto.ViewModels.AccueilViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        Vue Index
+    </div>
+    @Html.Partial("../Shared/Connexion", Model)
+    <br />
+    <br />
+    @Html.Action("AfficherListeRestaurant")
+    <br />
+    <br />
+    @using (Html.BeginForm("Index", "Home"))
+    {
+        @Html.Label("estMajeur", "Cochez la case si vous êtes <strong>majeur</strong>")
+        @Html.CheckBox("estMajeur", true)
+        <input type="submit" name="name" value="Envoyer" />
+    }
+
+
+
+
+    @Html.TextBox("Nom", Model.Resto.Nom, new { style = "color:red" })
+    @Html.TextBox("nom", Model.Resto.Nom)
+    @Html.TextBoxFor(model => model.Resto.Nom )
+    @Html.TextBox("Telephone", Model.Resto.Telephone)
+
+    <input type="sub" name="name" value="Envoyer" />
+
+    @Html.DropDownList("RestoChoisi", (SelectList)ViewBag.ListedesRestos)
+
+</body>
+</html>
